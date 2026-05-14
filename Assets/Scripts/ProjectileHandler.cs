@@ -33,21 +33,25 @@ public class ProjectileHandler : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (CompareTag("Weapon") || CompareTag("Projectile"))
+        if (other.CompareTag("Weapon") || other.CompareTag("Projectile"))
         {
             return; // Ignore collisions with other projectiles or weapons
         }
-        else if (CompareTag("Player"))
+        else if (other.CompareTag("Player"))
         {
             return; // Ignore collisions with the player (projectiles should not damage the player)
         }
-        else if (CompareTag("Enemy"))
+        else if (other.CompareTag("Enemy"))
         {
 
             if (other.TryGetComponent<EnemyHealth>(out var damageable))
             {
                 damageable.TakeDamage(damage);
                 Debug.Log("Projectile hit enemy for " + damage + " damage.");
+            }
+            else
+            {
+                Debug.LogWarning("Projectile hit an enemy without an EnemyHealth component.");
             }
 
         }

@@ -2,10 +2,9 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField]
-    private int maxHealth = 100;
+    [SerializeField] private int maxHealth = 100;
 
-    private int currentHealth;
+    [SerializeField] private int currentHealth;
 
     public int CurrentHealth => currentHealth;
     public int MaxHealth => maxHealth;
@@ -35,7 +34,7 @@ public class Health : MonoBehaviour
             return;
 
         currentHealth = Mathf.Max(currentHealth - amount, 0);
-        
+
         if (IsDead())
         {
             OnDeath();
@@ -55,7 +54,7 @@ public class Health : MonoBehaviour
     {
         currentHealth = maxHealth;
     }
-    
+
     protected virtual void OnTakeDamage(int amount)
     {
         // Override in subclasses to handle damage taken.

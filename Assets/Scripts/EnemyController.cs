@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
@@ -17,7 +18,9 @@ public class EnemyController : MonoBehaviour
     private Vector3 patrolDestination;
     private float patrolTimer;
     private float attackTimer;
+    private float retreatTimer;
     private int currentHealth;
+    [SerializeField] private bool dieAfterDamage = false;
 
     void Start()
     {
@@ -26,6 +29,7 @@ public class EnemyController : MonoBehaviour
         SetNewPatrolDestination();
         patrolTimer = patrolChangeInterval;
         attackTimer = 0f;
+        retreatTimer = 0f;
     }
 
     void Update()
@@ -34,13 +38,21 @@ public class EnemyController : MonoBehaviour
             return;
 
         attackTimer -= Time.deltaTime;
+        retreatTimer -= Time.deltaTime;
 
         if (player != null)
         {
             float distanceToPlayer = Vector3.Distance(transform.position, player.position);
             if (distanceToPlayer <= chaseRange)
             {
-                ChasePlayer(distanceToPlayer);
+                if (retreatTimer > 0f)
+                {
+                    RetreatFromPlayer();
+                }
+                else
+                {
+                    ChasePlayer(distanceToPlayer);
+                }
                 return;
             }
         }
@@ -57,12 +69,18 @@ public class EnemyController : MonoBehaviour
     private void ChasePlayer(float distanceToPlayer)
     {
         Vector3 direction = (player.position - transform.position).normalized;
-        MoveInDirection(direction);
+        MoveInDirection(direction, player.position);
 
         if (distanceToPlayer <= attackRange)
         {
             TryAttack();
         }
+    }
+
+    private void RetreatFromPlayer()
+    {
+        Vector3 direction = (transform.position - player.position).normalized;
+        MoveInDirection(direction, player.position);
     }
 
     private void Patrol()
@@ -74,24 +92,28 @@ public class EnemyController : MonoBehaviour
         }
 
         Vector3 direction = (patrolDestination - transform.position).normalized;
-        MoveInDirection(direction);
+        MoveInDirection(direction, patrolDestination);
     }
 
     private void SetNewPatrolDestination()
     {
-        Vector2 randomCircle = Random.insideUnitCircle * patrolRadius;
-        patrolDestination = transform.position + new Vector3(randomCircle.x, 0f, randomCircle.y);
+        Vector2 randomCircle = UnityEngine.Random.insideUnitCircle * patrolRadius;
+        patrolDestination = transform.position + new Vector3(randomCircle.x, -Math.Abs(randomCircle.y) / 3f, randomCircle.y);
         patrolTimer = patrolChangeInterval;
     }
 
-    private void MoveInDirection(Vector3 direction)
+    private void MoveInDirection(Vector3 direction, Vector3 targetPosition)
     {
-        direction.y = 0f;
         if (direction.sqrMagnitude < 0.01f)
             return;
 
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * 5f);
-        transform.position += direction * moveSpeed * Time.deltaTime;
+        direction = (targetPosition - transform.position).normalized;
+        direction.y = Mathf.Clamp(direction.y, -0.5f, 0.5f);
+        direction = direction.normalized;
+
+        Transform t = transform;
+        t.rotation = Quaternion.Slerp(t.rotation, Quaternion.LookRotation(direction), Time.deltaTime * 5f);
+        t.position += direction * moveSpeed * Time.deltaTime;
     }
 
     private void TryAttack()
@@ -100,10 +122,14 @@ public class EnemyController : MonoBehaviour
             return;
 
         attackTimer = attackCooldown;
-        var damageable = player.GetComponent<Health>();
-        if (damageable != null)
+        retreatTimer = attackCooldown;
+        if (player != null && player.TryGetComponent<Health>(out var damageable))
         {
             damageable.TakeDamage(attackDamage);
+            if (dieAfterDamage)
+            {
+                TakeDamage(maxHealth); // Instantly die after attacking
+            }
             Debug.Log("Enemy attacked player for " + attackDamage + " damage.");
         }
     }

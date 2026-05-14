@@ -88,7 +88,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.21
+  m_Radius: 0.33
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &2619756988309040655
 Rigidbody:
@@ -311,7 +311,7 @@ TrailRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Time: 0.46
-  m_PreviewTimeScale: 0
+  m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -409,7 +409,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.13127139, y: 0.13127139, z: 0.13127139}
+  m_LocalScale: {x: 0.35358325, y: 0.35358325, z: 0.35358325}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 601740506825878852}
