@@ -37,19 +37,29 @@ public class ProjectileHandler : MonoBehaviour
         {
             return; // Ignore collisions with other projectiles or weapons
         }
-        if (other.TryGetComponent<Health>(out var health))
+        else if (CompareTag("Player"))
         {
-            health.TakeDamage(damage);
+            return; // Ignore collisions with the player (projectiles should not damage the player)
+        }
+        else if (CompareTag("Enemy"))
+        {
+
+            if (other.TryGetComponent<EnemyHealth>(out var damageable))
+            {
+                damageable.TakeDamage(damage);
+                Debug.Log("Projectile hit enemy for " + damage + " damage.");
+            }
+
         }
         else
         {
-            if (hitSound != null && audioSource != null)
-            {
-                audioSource.PlayOneShot(hitSound);
-            }
             if (hitEffect != null)
             {
                 Instantiate(hitEffect, transform.position, Quaternion.identity);
+            }
+            if (audioSource != null && hitSound != null)
+            {
+                audioSource.PlayOneShot(hitSound);
             }
         }
         Destroy(gameObject);

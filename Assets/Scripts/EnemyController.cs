@@ -104,6 +104,7 @@ public class EnemyController : MonoBehaviour
         if (damageable != null)
         {
             damageable.TakeDamage(attackDamage);
+            Debug.Log("Enemy attacked player for " + attackDamage + " damage.");
         }
     }
 
