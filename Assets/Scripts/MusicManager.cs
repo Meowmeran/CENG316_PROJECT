@@ -27,6 +27,7 @@ public class MusicManager : MonoBehaviour
     IEnumerator StartMusicSequence()
     {
         // Start -> Calm: no transition, instant swap
+        yield return new WaitForSeconds(1f); // Wait a bit
         PlayInstant(musicStart);
         yield return new WaitForSeconds(musicStart.clip.length);
 

@@ -229,7 +229,7 @@ MonoBehaviour:
   rb: {fileID: 2619756988309040655}
   speed: 10
   damage: 7
-  lifetime: 5
+  lifetime: 3.19
   hitEffect: {fileID: 0}
   hitSound: {fileID: 0}
   audioSource: {fileID: 0}
