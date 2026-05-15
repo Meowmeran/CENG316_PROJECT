@@ -1,41 +1,55 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
 
 public class VisualEffectHandler : MonoBehaviour
 {
-    public Volume volume;
-    public float effectDuration = 1f;
+    public Volume wakeUpVolume;
+    public Volume damageVolume;
+    public float wakeUpEffectDuration = 3f;
+    public float damageEffectDuration = 1f;
     public AudioSource damageAudioSource;
     public AudioClip[] damageSounds;
 
 
     void Start()
     {
-        volume.weight = 0;
+        damageVolume.weight = 0;
         if (damageAudioSource == null)
         {
             damageAudioSource = GetComponent<AudioSource>();
         }
+        WakeUp();
     }
+    [ContextMenu("TakeDamage")]
     public void TakeDamage()
     {
-        volume.weight = 1;
+        damageVolume.weight = 1;
         PlayDamageSound();
-        StartCoroutine(DecreaseWeight());
+        StartCoroutine(DecreaseWeight(damageVolume, damageEffectDuration));
 
     }
 
-    private System.Collections.IEnumerator DecreaseWeight()
+    [ContextMenu("WakeUp")]
+    public void WakeUp()
     {
+        wakeUpVolume.weight = 1;
+        StartCoroutine(DecreaseWeight(wakeUpVolume, wakeUpEffectDuration, 3f));
+    }
+
+    private System.Collections.IEnumerator DecreaseWeight(Volume volume, float duration, float delay = 0)
+    {
+        yield return new WaitForSeconds(delay);
         float time = 0;
-        while (time < effectDuration)
+        while (time < duration)
         {
-            volume.weight = Mathf.Lerp(1, 0, time / effectDuration);
+            volume.weight = Mathf.Lerp(1, 0, time / damageEffectDuration);
             time += Time.deltaTime;
             yield return null;
         }
         volume.weight = 0;
     }
+
 
     private void PlayDamageSound()
     {

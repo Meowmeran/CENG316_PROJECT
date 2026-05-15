@@ -4,15 +4,24 @@ public class EnemyHealth : Health
 {
     [SerializeField] private ParticleSystem deathEffect;
     [SerializeField] private ParticleSystem hitEffect;
+    GameManagerFinal gameManager;
 
+    void Start()
+    {
+        gameManager = FindFirstObjectByType<GameManagerFinal>();
+        if (gameManager == null)
+        {
+            Debug.LogError("GameManagerFinal not found in scene.");
+        }
+    }
     protected override void OnTakeDamage(int amount)
     {
-        base.OnTakeDamage(amount);
         if (hitEffect != null)
         {
             Instantiate(hitEffect, transform.position, Quaternion.identity);
         }
-        
+        base.OnTakeDamage(amount);
+
     }
     protected override void OnDeath()
     {
@@ -21,6 +30,7 @@ public class EnemyHealth : Health
         {
             Instantiate(deathEffect, transform.position, Quaternion.identity);
         }
+        gameManager.OnKill();
         Destroy(gameObject);
     }
 }

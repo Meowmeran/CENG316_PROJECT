@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 5252633828012718013}
   - component: {fileID: 3983333825818430347}
   m_Layer: 0
-  m_Name: Ambush
+  m_Name: EntityImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -353,7 +353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ef2fad6ec84f1b45889401d3a4845d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 8.9
+  moveSpeed: 14.7
   chaseRange: 255
   attackRange: 1.5
   patrolRadius: 9

@@ -21,6 +21,8 @@ public class EnemyController : MonoBehaviour
     private float retreatTimer;
     private int currentHealth;
     [SerializeField] private bool dieAfterDamage = false;
+    private JumpscareHandler jumpscareHandler;
+    [SerializeField] private Entity entityType = Entity.Ambush;
 
     void Start()
     {
@@ -30,6 +32,7 @@ public class EnemyController : MonoBehaviour
         patrolTimer = patrolChangeInterval;
         attackTimer = 0f;
         retreatTimer = 0f;
+        jumpscareHandler = FindFirstObjectByType<JumpscareHandler>();
     }
 
     void Update()
@@ -126,6 +129,7 @@ public class EnemyController : MonoBehaviour
         if (player != null && player.TryGetComponent<Health>(out var damageable))
         {
             damageable.TakeDamage(attackDamage);
+            jumpscareHandler.TriggerJumpscare((int)entityType);
             if (dieAfterDamage)
             {
                 TakeDamage(maxHealth); // Instantly die after attacking
@@ -146,8 +150,12 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    private void Die()
+    public void Die()
     {
-        gameObject.SetActive(false);
+        if (TryGetComponent<EnemyHealth>(out var enemyHealth))
+        {
+            enemyHealth.TakeDamage(maxHealth);
+        }
+        Destroy(gameObject);
     }
 }

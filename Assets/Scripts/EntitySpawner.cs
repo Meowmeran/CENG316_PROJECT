@@ -11,22 +11,35 @@ public class EntitySpawner : MonoBehaviour
     public int maxEnemiesAlive = 10;
     public string enemyTag = "Enemy";
     private Transform player;
+    [SerializeField] private bool spawnEntitites = false; 
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
+
+    public void StartSpawning()
+    {
+        spawnEntitites = true;
         for (int i = 0; i < entityPrefabs.Length; i++)
         {
             StartCoroutine(SpawnEntity(i));
         }
     }
 
+    public void StopSpawning()
+    {
+        spawnEntitites = false;
+    }
+    
+
     IEnumerator SpawnEntity(int index)
     {
-        while (true)
+        while (spawnEntitites)
         {
             yield return new WaitForSeconds(spawnRates[index]);
-            if (GetAliveEnemyCount() >= maxEnemiesAlive)
+            if (GetAliveEnemyCount() >= maxEnemiesAlive || !spawnEntitites)
             {
                 continue;
             }
@@ -59,5 +72,18 @@ public class EntitySpawner : MonoBehaviour
             }
         }
         return Vector3.zero;
+    }
+    [ContextMenu("Despawn All Enemies")]
+    public bool DespawnAllEnemies()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        foreach (GameObject enemy in enemies)
+        {
+            if (enemy.TryGetComponent<EnemyController>(out var enemyController))
+            {
+                enemyController.Die();
+            }
+        }
+        return true;
     }
 }
