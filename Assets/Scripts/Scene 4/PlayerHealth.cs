@@ -2,8 +2,27 @@ using UnityEngine;
 
 public class PlayerHealth : Health
 {
-    [SerializeField] private VisualEffectHandler visualEffectHandler;
 
+    [SerializeField] private VisualEffectHandler visualEffectHandler;
+    [SerializeField] private GameManagerFinal gameManager;
+
+    void Start()
+    {
+        if (visualEffectHandler == null)
+        {
+            Debug.LogError("VisualEffectHandler is not assigned in PlayerHealth.");
+        }
+        if (gameManager == null)
+        {
+            gameManager = FindFirstObjectByType<GameManagerFinal>();
+
+            if (gameManager == null)
+            {
+                Debug.LogError("GameManagerFinal not found in scene.");
+            }
+
+        }
+    }
     protected override void OnTakeDamage(int amount)
     {
         base.OnTakeDamage(amount);
@@ -16,7 +35,9 @@ public class PlayerHealth : Health
     protected override void OnDeath()
     {
         base.OnDeath();
-        // Handle player death (e.g., show game over screen, respawn, etc.)
+        gameManager.OnDeath();
         Debug.Log("Player has died!");
     }
+
+
 }

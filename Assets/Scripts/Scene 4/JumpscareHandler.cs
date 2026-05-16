@@ -5,6 +5,8 @@ using System;
 public class JumpscareHandler : MonoBehaviour
 {
     public GameObject[] entities;
+    [Header("References")]
+    [SerializeField] private GameManagerFinal gameManager;
     [SerializeField] private Transform originalPosition;
     [SerializeField] private Camera jumpscareCamera;
 
@@ -16,6 +18,10 @@ public class JumpscareHandler : MonoBehaviour
 
     void Start()
     {
+        if (gameManager == null)
+        {
+            gameManager = FindFirstObjectByType<GameManagerFinal>();
+        }
         if (originalPosition == null)
         {
             if (entities.Length > 0)
@@ -30,7 +36,7 @@ public class JumpscareHandler : MonoBehaviour
     }
     public void TriggerJumpscare(int index)
     {
-        if (index >= 0 && index < entities.Length)
+        if (index >= 0 && index < entities.Length && !gameManager.isGameOver && !gameManager.isGameWin)
         {
             StartCoroutine(AnimateJumpscare(entities[index]));
         }

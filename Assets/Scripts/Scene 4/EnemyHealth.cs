@@ -4,6 +4,7 @@ public class EnemyHealth : Health
 {
     [SerializeField] private ParticleSystem deathEffect;
     [SerializeField] private ParticleSystem hitEffect;
+    [SerializeField] private SoundInstancer soundInstancer;
     GameManagerFinal gameManager;
 
     void Start()
@@ -19,7 +20,9 @@ public class EnemyHealth : Health
         if (hitEffect != null)
         {
             Instantiate(hitEffect, transform.position, Quaternion.identity);
+            
         }
+        soundInstancer.PlaySound();
         base.OnTakeDamage(amount);
 
     }

@@ -382,6 +382,8 @@ Library/ScriptAssemblies/
  Unity.2D.Sprite.Editor.dll
  Unity.Burst.dll
  Unity.Burst.Editor.dll
+ Unity.Cinemachine.dll
+ Unity.Cinemachine.Editor.dll
  Unity.Collections.dll
  Unity.Collections.Editor.dll
  Unity.InputSystem.dll
@@ -406,7 +408,10 @@ Library/ScriptAssemblies/
  Unity.RenderPipelines.Universal.Runtime.dll
  Unity.RenderPipelines.Universal.Shaders.dll
  Unity.Searcher.Editor.dll
+ Unity.Settings.Editor.dll
  Unity.ShaderGraph.Editor.dll
+ Unity.Splines.dll
+ Unity.Splines.Editor.dll
  Unity.TextMeshPro.dll
  Unity.TextMeshPro.Editor.dll
  Unity.VisualStudio.Editor.dll

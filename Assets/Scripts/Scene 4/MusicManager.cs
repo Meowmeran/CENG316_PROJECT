@@ -135,6 +135,32 @@ public class MusicManager : MonoBehaviour
     }
 
     // ---------- CORE HELPERS ----------
+    public void FadeAllOut(float fadeTime = 1.5f)
+    {
+        StartCoroutine(FadeAllOutViaPitch(fadeTime));
+    }
+
+    IEnumerator FadeAllOutViaPitch(float fadeTime)
+    {
+        float t = 0f;
+        while (t < fadeTime)
+        {
+            t += Time.deltaTime;
+            float n = Mathf.Lerp(1f, 0f, Mathf.Clamp01(t / fadeTime));
+            musicStart.pitch = n;
+            musicCalmLoop.pitch = n;
+            musicCalmToIntense.pitch = n;
+            musicIntenseLoop.pitch = n;
+            musicEnd.pitch = n;
+            yield return null;
+        }
+            musicStart.pitch = 0f;
+            musicCalmLoop.pitch = 0f;
+            musicCalmToIntense.pitch = 0f;
+            musicIntenseLoop.pitch = 0f;
+            musicEnd.pitch = 0f;
+            currentSource.Stop();
+    }
 
     void PlayInstant(AudioSource source)
     {

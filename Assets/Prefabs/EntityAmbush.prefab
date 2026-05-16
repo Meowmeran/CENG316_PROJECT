@@ -129,6 +129,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8120007882405370436}
+  - component: {fileID: 2241125044387334708}
   m_Layer: 0
   m_Name: SFX
   m_TagString: Untagged
@@ -154,6 +155,30 @@ Transform:
   - {fileID: 8085320770629102829}
   m_Father: {fileID: 4927247520489617921}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2241125044387334708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2274614573291395783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fee55b838b4eac48b3c9a9d1134a1fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: {fileID: 1001258503844693949, guid: 19d5eda040e51674582c4698c6bd8f4e, type: 3}
+  clips:
+  - {fileID: 8300000, guid: 7216739d3884cc14492f572809fbaffd, type: 3}
+  - {fileID: 8300000, guid: f094ed51bf1ff384b9b846f338124d8f, type: 3}
+  - {fileID: 8300000, guid: cdf608b6458f0ba4c9106431c1805427, type: 3}
+  minVolume: 0.83
+  maxVolume: 1
+  minPitch: 0.99
+  maxPitch: 1.01
+  delay: 0
+  fadeOut: 1.92
+  destroyTime: 2.15
 --- !u!1 &3156185588980896334
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,7 +224,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: b688b5e22d8d4a6458ebb22a68bad989, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.013
+  m_Volume: 0.094
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -354,7 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ef2fad6ec84f1b45889401d3a4845d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 14.7
+  moveSpeed: 10.3
   chaseRange: 255
   attackRange: 1.5
   patrolRadius: 9
@@ -363,6 +388,7 @@ MonoBehaviour:
   attackDamage: 1
   attackCooldown: 1.2
   dieAfterDamage: 1
+  cameraShakeIntensity: 1
   entityType: 0
 --- !u!114 &8883081834661397872
 MonoBehaviour:
@@ -376,10 +402,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9ec7b9084f7d2e4095370cf691b64c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 150
   currentHealth: 100
   deathEffect: {fileID: 1341996005853204329, guid: 695f09bf211b0f54ca0976abd46caf1d, type: 3}
   hitEffect: {fileID: 8578691833775587308, guid: 7269808841da4944f8154058069938c1, type: 3}
+  soundInstancer: {fileID: 2241125044387334708}
 --- !u!1 &4248340921741992099
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,7 +539,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 113
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 249.08
@@ -10383,12 +10410,12 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 103
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 4.343462
+  MaxDistance: 8.63
   Pan2D: 0
-  rolloffMode: 2
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0

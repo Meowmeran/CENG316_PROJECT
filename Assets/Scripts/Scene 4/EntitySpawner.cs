@@ -5,7 +5,8 @@ public class EntitySpawner : MonoBehaviour
 {
     public GameObject[] entityPrefabs;
     public float[] spawnRates;
-    public Bounds spawnArea;
+    public BoxCollider spawnAreaCollider;
+    private Bounds spawnArea;
     public float spawnCheckRadius = 1f;
     public float minDistanceToPlayer = 5f;
     public int maxEnemiesAlive = 10;
@@ -15,6 +16,11 @@ public class EntitySpawner : MonoBehaviour
 
     void Start()
     {
+        spawnArea = spawnAreaCollider.bounds;
+        if (spawnArea != null)
+        {
+            Destroy(spawnAreaCollider.gameObject);
+        }
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 

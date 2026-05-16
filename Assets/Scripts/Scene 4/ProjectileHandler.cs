@@ -7,17 +7,10 @@ public class ProjectileHandler : MonoBehaviour
     [SerializeField] private float speed = 10f;
     [SerializeField] private int damage = 1;
     [SerializeField] private float lifetime = 5f;
-    [SerializeField] private ParticleSystem hitEffect;
-    [SerializeField] private AudioClip hitSound;
-    [SerializeField] private AudioSource audioSource;
 
     private void Start()
     {
         Destroy(gameObject, lifetime); // Destroy projectile after lifetime expires
-        if (audioSource == null)
-        {
-            audioSource = GetComponent<AudioSource>();
-        }
     }
 
     private void Update()
@@ -54,17 +47,6 @@ public class ProjectileHandler : MonoBehaviour
                 Debug.LogWarning("Projectile hit an enemy without an EnemyHealth component.");
             }
 
-        }
-        else
-        {
-            if (hitEffect != null)
-            {
-                Instantiate(hitEffect, transform.position, Quaternion.identity);
-            }
-            if (audioSource != null && hitSound != null)
-            {
-                audioSource.PlayOneShot(hitSound);
-            }
         }
         Destroy(gameObject);
     }

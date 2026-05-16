@@ -22,6 +22,7 @@ public class EnemyController : MonoBehaviour
     private int currentHealth;
     [SerializeField] private bool dieAfterDamage = false;
     private JumpscareHandler jumpscareHandler;
+    [SerializeField] private float cameraShakeIntensity = 1f;
     [SerializeField] private Entity entityType = Entity.Ambush;
 
     void Start()
@@ -61,6 +62,7 @@ public class EnemyController : MonoBehaviour
         }
 
         Patrol();
+        
     }
 
     private Transform FindPlayer()
@@ -142,7 +144,7 @@ public class EnemyController : MonoBehaviour
     {
         if (currentHealth <= 0)
             return;
-
+        
         currentHealth -= damage;
         if (currentHealth <= 0)
         {

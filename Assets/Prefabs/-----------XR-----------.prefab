@@ -47,6 +47,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   visualEffectHandler: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!1 &8260988821896711738
 GameObject:
   m_ObjectHideFlags: 0
