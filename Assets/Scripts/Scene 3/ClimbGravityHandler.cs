@@ -1,22 +1,21 @@
 using UnityEngine;
-using UnityEngine.InputSystem.Interactions;
-using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
+using UnityEngine.XR.Interaction.Toolkit.Locomotion.Gravity;
 
 public class ClimbGravityHandler : MonoBehaviour
 {
-    [SerializeField] private DynamicMoveProvider dynamicMoveProvider;
+    [SerializeField] private GravityProvider gp;
     int climbCount = 0;
 
     void Start()
     {
         climbCount = 0;
-        if (dynamicMoveProvider == null)
+        if (gp == null)
         {
-            dynamicMoveProvider = FindFirstObjectByType<DynamicMoveProvider>();
+            gp = FindFirstObjectByType<GravityProvider>();
 
-            if (dynamicMoveProvider == null)
+            if (gp == null)
             {
-                Debug.LogError("DynamicMoveProvider not found in scene.");
+                Debug.LogError("GravityProvider not found in scene.");
             }
         }
     }
@@ -34,6 +33,6 @@ public class ClimbGravityHandler : MonoBehaviour
 
     private void UpdateLogic()
     {
-        dynamicMoveProvider.useGravity = climbCount <= 0;
+        gp.useGravity = climbCount <= 0;
     }
 }
