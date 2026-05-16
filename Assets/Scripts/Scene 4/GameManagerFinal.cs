@@ -7,7 +7,7 @@ public class GameManagerFinal : MonoBehaviour
     [SerializeField] private EntitySpawner entitySpawner;
     [SerializeField] private VisualEffectHandler effectHandler;
 
-    [SerializeField] private int requiredKills = 80;
+    [SerializeField] private int requiredKills = 35;
     [SerializeField] private int currentKills = 0;
     [SerializeField] private bool gameStartedOnce = false;
     public bool isGameOver = false;
@@ -45,12 +45,16 @@ public class GameManagerFinal : MonoBehaviour
         musicManager.EndMusic();
         entitySpawner.StopSpawning();
         entitySpawner.DespawnAllEnemies();
+        sceneSwitcher.LoadNextScene(19f);
     }
 
     public void OnDeath()
     {
+        isGameOver = true;
         musicManager.FadeAllOut();
+        effectHandler.OnDeath();
         entitySpawner.StopSpawning();
+        sceneSwitcher.ReloadCurrentScene(5f);
     }
 
     public void OnKill()

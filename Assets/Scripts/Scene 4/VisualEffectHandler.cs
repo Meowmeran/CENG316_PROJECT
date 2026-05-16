@@ -11,6 +11,7 @@ public class VisualEffectHandler : MonoBehaviour
     public Volume wakeUpVolume;
     public Volume damageVolume;
     public Volume winVolume;
+    public Volume deathVolume;
     public float wakeUpEffectDuration = 3f;
     public float damageEffectDuration = 1f;
     public AudioSource damageAudioSource;
@@ -63,6 +64,13 @@ public class VisualEffectHandler : MonoBehaviour
         wakeUpVolume.weight = 0;
         damageVolume.weight = 0;
         StartCoroutine(IncreaseWeight(winVolume, 10f));
+    }
+    public void OnDeath()
+    {
+        wakeUpVolume.weight = 0;
+        damageVolume.weight = 0;
+        winVolume.weight = 0;
+        StartCoroutine(IncreaseWeight(deathVolume, 10f));
     }
 
     private System.Collections.IEnumerator IncreaseWeight(Volume volume, float duration)

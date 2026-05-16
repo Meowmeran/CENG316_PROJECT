@@ -224,7 +224,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: b688b5e22d8d4a6458ebb22a68bad989, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.094
+  m_Volume: 0.665
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -385,7 +385,7 @@ MonoBehaviour:
   patrolRadius: 9
   patrolChangeInterval: 7.6
   maxHealth: 3
-  attackDamage: 1
+  attackDamage: 35
   attackCooldown: 1.2
   dieAfterDamage: 1
   cameraShakeIntensity: 1
@@ -402,7 +402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9ec7b9084f7d2e4095370cf691b64c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 150
+  maxHealth: 43
   currentHealth: 100
   deathEffect: {fileID: 1341996005853204329, guid: 695f09bf211b0f54ca0976abd46caf1d, type: 3}
   hitEffect: {fileID: 8578691833775587308, guid: 7269808841da4944f8154058069938c1, type: 3}
@@ -10413,7 +10413,7 @@ AudioSource:
   Priority: 103
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 8.63
+  MaxDistance: 20
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0

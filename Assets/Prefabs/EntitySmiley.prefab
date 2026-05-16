@@ -4921,6 +4921,10 @@ PrefabInstance:
       propertyPath: entityType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4217104146088192387, guid: cb8852809569bdf4584c772a5734e0f0, type: 3}
+      propertyPath: attackDamage
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4927247520489617921, guid: cb8852809569bdf4584c772a5734e0f0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4999,7 +5003,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: ed7acc7d956ae0441afbafb7d709ea89, type: 3}
     - target: {fileID: 8118322326024112557, guid: cb8852809569bdf4584c772a5734e0f0, type: 3}
       propertyPath: MaxDistance
-      value: 4.664604
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9018875087493860468, guid: cb8852809569bdf4584c772a5734e0f0, type: 3}
       propertyPath: m_IsActive
