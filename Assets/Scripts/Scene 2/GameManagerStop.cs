@@ -4,6 +4,8 @@ public class GameManagerStop : MonoBehaviour
 {
     [SerializeField] private SceneSwitcher sceneSwitcher;
     [SerializeField] private EffectHandlerSpider effectHandler;
+    [SerializeField] private EyeJumpscareHandler jumpscareHandler;
+    [SerializeField] private FindableManager findableManager;
     public TheEyeLogic eyeLogic;
     private GameObject player;
     public bool isGameOver = false;
@@ -32,7 +34,9 @@ public class GameManagerStop : MonoBehaviour
         isGameOver = true;
         eyeLogic.OnGameOver();
         effectHandler.OnGameOver();
+        jumpscareHandler.PlayJumpscare();
         sceneSwitcher.ReloadCurrentScene(5f);
+        findableManager.DestroyAllFindables();
     }
 
     public void CheckFoundAmount(int amount)

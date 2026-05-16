@@ -8,14 +8,16 @@ public class TheEyeLogic : MonoBehaviour
     [SerializeField] private Transform watchPoint;
     [SerializeField] private GameObject TheEyeVisual;
 
-    
+
     [Header("Reference")]
     [SerializeField] private PlayerMovementDetection playerMovementDetection;
+    [SerializeField] private GameManagerStop gameManager;
 
     [Header("Movement")]
     public float speed = 1f;
 
     [Header("Timers")]
+    [SerializeField] float allowence = 0.2f;
     [SerializeField] float minReboundTimer = 5f;
     [SerializeField] float maxReboundTimer = 10f;
     [SerializeField] float minWatchTimer = 8f;
@@ -69,7 +71,7 @@ public class TheEyeLogic : MonoBehaviour
             float watchTimer =
                 Random.Range(minWatchTimer, maxWatchTimer);
 
-            yield return new WaitForSeconds(watchTimer);
+            yield return ObservePlayer(watchTimer);
 
             // ---- REBOUND PHASE ----
             yield return MoveEye(reboundPoint.position);
@@ -96,6 +98,29 @@ public class TheEyeLogic : MonoBehaviour
             yield return null;
         }
         TheEyeVisual.transform.position = targetPos;
+    }
+
+    // =====================================================
+    // DETECTION
+    // =====================================================
+    IEnumerator ObservePlayer(float duration)
+    {
+        yield return new WaitForSeconds(allowence);
+
+        playerMovementDetection.CaptureLastPositions();
+
+        float endTime = Time.time + duration;
+
+        while (Time.time < endTime)
+        {
+            if (playerMovementDetection.HasMoved())
+            {
+                gameManager.OnGameOver();
+                yield break;
+            }
+
+            yield return new WaitForSeconds(0.2f);
+        }
     }
 
     // =====================================================
@@ -129,6 +154,12 @@ public class TheEyeLogic : MonoBehaviour
 
     public void OnWin()
     {
+        StopCoroutine(eyeLoop);
+        TheEyeVisual.SetActive(false);
+    }
 
+    public void OnGameOver()
+    {
+        StopCoroutine(eyeLoop);
     }
 }

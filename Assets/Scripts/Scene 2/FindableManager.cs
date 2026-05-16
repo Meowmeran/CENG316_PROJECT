@@ -40,4 +40,11 @@ public class FindableManager : MonoBehaviour
         foundAmount = 0;
     }
 
+    public void DestroyAllFindables() => generator.DestroyAllFindables();
+
+    void OnDestroy()
+    {
+        DestroyAllFindables();
+    }
+
 }

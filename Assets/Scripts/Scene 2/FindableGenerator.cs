@@ -3,64 +3,83 @@ using UnityEngine;
 
 public class FindableGenerator : MonoBehaviour
 {
-    [SerializeField] GameObject findablePrefab;
-    List<GameObject> objects = new List<GameObject>();
-    [SerializeField] BoxCollider spawnArea;
-    private Bounds bounds;
+    [Header("References")]
+    [SerializeField] private GameObject findablePrefab;
+    [SerializeField] private BoxCollider spawnArea;
 
     [Header("Generation")]
-    [SerializeField] float minDistance = 2f;
+    [SerializeField] private float minDistance = 2f;
 
-    void Start()
+    private Bounds bounds;
+    private List<Vector3> usedPositions = new List<Vector3>();
+    private List<GameObject> objects = new List<GameObject>();
+
+    void Awake()
     {
-        objects = new List<GameObject>();
         bounds = spawnArea.bounds;
-        if (bounds != null)
-        {
-            Destroy(spawnArea.gameObject);
-        }
-    }
 
-    private Vector3 GetRandomPointNotCloseToEachOther(int attempts = 10)
-    {
-        if (attempts <= 0)
+        // IMPORTANT: do NOT destroy spawnArea if you need bounds
+        if (spawnArea == null)
         {
-            return GetRandomPoint();
+            Debug.LogError("Spawn area missing!");
         }
-        Vector3 point = GetRandomPoint();
-        if (Vector3.Distance(point, GetRandomPoint()) < minDistance)
-        {
-            return GetRandomPointNotCloseToEachOther(attempts - 1);
-        }
-        return point;
-    }
 
-    Vector3 GetRandomPoint()
-    {
-        float randomX = Random.Range(bounds.min.x, bounds.max.x);
-        float randomY = Random.Range(bounds.min.y, bounds.max.y);
-        float randomZ = Random.Range(bounds.min.z, bounds.max.z);
-
-        return new Vector3(randomX, randomY, randomZ);
+        usedPositions.Clear();
     }
 
     public void Generate(int count)
     {
         for (int i = 0; i < count; i++)
         {
-            Vector3 point = GetRandomPointNotCloseToEachOther();
+            Vector3 point = GetValidPoint();
             GameObject obj = Instantiate(findablePrefab, point, Quaternion.identity);
             objects.Add(obj);
+            usedPositions.Add(point);
         }
+    }
+
+    private Vector3 GetValidPoint()
+    {
+        int attempts = 20;
+
+        while (attempts > 0)
+        {
+            Vector3 candidate = GetRandomPoint();
+
+            if (IsFarEnough(candidate))
+                return candidate;
+
+            attempts--;
+        }
+
+        return GetRandomPoint();
+    }
+
+    private bool IsFarEnough(Vector3 point)
+    {
+        foreach (var p in usedPositions)
+        {
+            if (Vector3.Distance(point, p) < minDistance)
+                return false;
+        }
+        return true;
+    }
+
+    private Vector3 GetRandomPoint()
+    {
+        float x = Random.Range(bounds.min.x, bounds.max.x);
+        float y = Random.Range(bounds.min.y, bounds.max.y);
+        float z = Random.Range(bounds.min.z, bounds.max.z);
+
+        return new Vector3(x, y, z);
     }
 
     public void DestroyAllFindables()
     {
-        foreach (GameObject obj in objects)
-        {
+        foreach (var obj in objects)
             Destroy(obj);
-        }
-        objects.Clear();
-    }
 
+        objects.Clear();
+        usedPositions.Clear();
+    }
 }

@@ -2,40 +2,49 @@ using UnityEngine;
 
 public class PlayerMovementDetection : MonoBehaviour
 {
+    [Header("Tracked Objects")]
     [SerializeField] private Transform playerHead;
     [SerializeField] private Transform playerRightHand;
     [SerializeField] private Transform playerLeftHand;
 
-    private Transform lastHeadPosition;
-    private Transform lastRightHandPosition;
-    private Transform lastLeftHandPosition;
-
+    [Header("Settings")]
     [SerializeField] private float movementThreshold = 0.1f;
-    
+
+    private Vector3 lastHeadPosition;
+    private Vector3 lastRightHandPosition;
+    private Vector3 lastLeftHandPosition;
+
     private void Start()
     {
-        lastHeadPosition = playerHead;
-        lastRightHandPosition = playerRightHand;
-        lastLeftHandPosition = playerLeftHand;
+        CaptureLastPositions();
     }
 
+    // =====================================================
+    // SNAPSHOT CURRENT WORLD POSITIONS
+    // =====================================================
     public void CaptureLastPositions()
     {
-        lastHeadPosition = playerHead;
-        lastRightHandPosition = playerRightHand;
-        lastLeftHandPosition = playerLeftHand;
+        if (playerHead != null)
+            lastHeadPosition = playerHead.position;
+
+        if (playerRightHand != null)
+            lastRightHandPosition = playerRightHand.position;
+
+        if (playerLeftHand != null)
+            lastLeftHandPosition = playerLeftHand.position;
     }
 
+    // =====================================================
+    // MOVEMENT CHECK (WORLD SPACE)
+    // =====================================================
     public bool HasMoved()
     {
-        return Mathf.Abs(playerHead.position.x - lastHeadPosition.position.x) > movementThreshold ||
-               Mathf.Abs(playerHead.position.y - lastHeadPosition.position.y) > movementThreshold ||
-               Mathf.Abs(playerHead.position.z - lastHeadPosition.position.z) > movementThreshold ||
-               Mathf.Abs(playerRightHand.position.x - lastRightHandPosition.position.x) > movementThreshold ||
-               Mathf.Abs(playerRightHand.position.y - lastRightHandPosition.position.y) > movementThreshold ||
-               Mathf.Abs(playerRightHand.position.z - lastRightHandPosition.position.z) > movementThreshold ||
-               Mathf.Abs(playerLeftHand.position.x - lastLeftHandPosition.position.x) > movementThreshold ||
-               Mathf.Abs(playerLeftHand.position.y - lastLeftHandPosition.position.y) > movementThreshold ||
-               Mathf.Abs(playerLeftHand.position.z - lastLeftHandPosition.position.z) > movementThreshold;
+        if (playerHead == null || playerRightHand == null || playerLeftHand == null)
+            return false;
+
+        return
+            Vector3.Distance(playerHead.position, lastHeadPosition) > movementThreshold ||
+            Vector3.Distance(playerRightHand.position, lastRightHandPosition) > movementThreshold ||
+            Vector3.Distance(playerLeftHand.position, lastLeftHandPosition) > movementThreshold;
     }
 }
