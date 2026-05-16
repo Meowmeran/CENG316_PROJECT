@@ -3,6 +3,7 @@ using UnityEngine;
 public class Findable : MonoBehaviour
 {
     FindableManager manager;
+    [SerializeField] private SoundInstancer soundInstancer;
     void Start()
     {
         manager = FindFirstObjectByType<FindableManager>();
@@ -13,6 +14,7 @@ public class Findable : MonoBehaviour
     }
     public void OnFound()
     {
+        soundInstancer.PlaySound();
         manager.OnFound();
         Destroy(gameObject);
     }

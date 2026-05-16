@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1773005207961337386}
   - component: {fileID: 3939441915022848189}
   - component: {fileID: 8771790444278549340}
+  - component: {fileID: 8021020535061580634}
   m_Layer: 0
   m_Name: FindableCassette
   m_TagString: Untagged
@@ -292,3 +293,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0abbaee6d6a3edb44b671ed246f31610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundInstancer: {fileID: 8021020535061580634}
+--- !u!114 &8021020535061580634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001688279435281421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fee55b838b4eac48b3c9a9d1134a1fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: {fileID: 1001258503844693949, guid: 258f06d159948264fb433a38e10ef054, type: 3}
+  clips:
+  - {fileID: 8300000, guid: e21e55ae3251eac428a74ecb5b2dc99e, type: 3}
+  minVolume: 0.9
+  maxVolume: 1
+  minPitch: 0.95
+  maxPitch: 1.05
+  delay: 0.15
+  fadeOut: 1
+  destroyTime: 1.7

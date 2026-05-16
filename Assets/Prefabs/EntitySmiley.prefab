@@ -4861,6 +4861,10 @@ PrefabInstance:
       propertyPath: m_Resource
       value: 
       objectReference: {fileID: 8300000, guid: 7c040b207b7acc44dbae6caa2b75151b, type: 3}
+    - target: {fileID: 1480938048215015877, guid: cb8852809569bdf4584c772a5734e0f0, type: 3}
+      propertyPath: MaxDistance
+      value: 27.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1715623650095428287, guid: cb8852809569bdf4584c772a5734e0f0, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -4915,7 +4919,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4217104146088192387, guid: cb8852809569bdf4584c772a5734e0f0, type: 3}
       propertyPath: moveSpeed
-      value: 4.55
+      value: 8.55
       objectReference: {fileID: 0}
     - target: {fileID: 4217104146088192387, guid: cb8852809569bdf4584c772a5734e0f0, type: 3}
       propertyPath: entityType
@@ -5003,7 +5007,11 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: ed7acc7d956ae0441afbafb7d709ea89, type: 3}
     - target: {fileID: 8118322326024112557, guid: cb8852809569bdf4584c772a5734e0f0, type: 3}
       propertyPath: MaxDistance
-      value: 6
+      value: 10.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8883081834661397872, guid: cb8852809569bdf4584c772a5734e0f0, type: 3}
+      propertyPath: maxHealth
+      value: 58
       objectReference: {fileID: 0}
     - target: {fileID: 9018875087493860468, guid: cb8852809569bdf4584c772a5734e0f0, type: 3}
       propertyPath: m_IsActive

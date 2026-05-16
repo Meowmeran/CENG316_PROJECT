@@ -22,25 +22,32 @@ public class SoundInstancer : MonoBehaviour
         if (fadeOut < destroyTime) destroyTime = fadeOut + 0.05f;
     }
     [ContextMenu("Play")]
+
     public void PlaySound()
     {
         GameObject gm = Instantiate(sound, transform.position, Quaternion.identity);
         AudioSource audioSource = gm.GetComponent<AudioSource>();
         audioSource.clip = clips[Random.Range(0, clips.Length)];
-        audioSource.volume = Random.Range(minVolume, maxVolume);
+
+        float randomVolume = Random.Range(minVolume, maxVolume);
+        audioSource.volume = randomVolume;
+
         audioSource.pitch = Random.Range(minPitch, maxPitch);
         audioSource.PlayDelayed(delay);
-        StartCoroutine(fadeOutSound(audioSource));
+
+        StartCoroutine(fadeOutSound(audioSource, randomVolume));
         Destroy(gm, destroyTime);
     }
 
-    private IEnumerator fadeOutSound(AudioSource audioSource)
+    private IEnumerator fadeOutSound(AudioSource audioSource, float startVolume)
     {
         float t = 0f;
         while (t < fadeOut)
         {
+            if (audioSource == null) yield break; 
+
             t += Time.deltaTime;
-            audioSource.volume = Mathf.Lerp(1f, 0f, t / fadeOut);
+            audioSource.volume = Mathf.Lerp(startVolume, 0f, t / fadeOut);
             yield return null;
         }
     }

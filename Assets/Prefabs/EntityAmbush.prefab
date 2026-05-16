@@ -379,7 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ef2fad6ec84f1b45889401d3a4845d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10.3
+  moveSpeed: 10.9
   chaseRange: 255
   attackRange: 1.5
   patrolRadius: 9
@@ -542,9 +542,9 @@ AudioSource:
   Priority: 113
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 249.08
+  MaxDistance: 138.16
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -552,23 +552,32 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
+      time: 0.004014774
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: -3.9992056
+      outSlope: -3.9992056
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.034016527
+    - serializedVersion: 3
+      time: 0.06883682
+      value: 0.59548926
+      inSlope: -2.1275966
+      outSlope: -2.1275966
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.33333334
+      outWeight: 0.061566778
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: -0.094908364
+      outSlope: -0.094908364
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0.122146666
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -10413,7 +10422,7 @@ AudioSource:
   Priority: 103
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 30.2
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
