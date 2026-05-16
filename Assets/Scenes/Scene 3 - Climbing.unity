@@ -1859,6 +1859,7 @@ MonoBehaviour:
   jumpscareHandler: {fileID: 18783342}
   soundInstancer: {fileID: 1220778212}
   finishCollider: {fileID: 1433460897}
+  deathCollider: {fileID: 1255171647}
 --- !u!114 &1220778212
 MonoBehaviour:
   m_ObjectHideFlags: 0
