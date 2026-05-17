@@ -132,6 +132,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5006650139049853489, guid: cb8852809569bdf4584c772a5734e0f0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6274321
+      objectReference: {fileID: 0}
+    - target: {fileID: 5006650139049853489, guid: cb8852809569bdf4584c772a5734e0f0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6274321
+      objectReference: {fileID: 0}
+    - target: {fileID: 5006650139049853489, guid: cb8852809569bdf4584c772a5734e0f0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.6274321
+      objectReference: {fileID: 0}
+    - target: {fileID: 5006650139049853489, guid: cb8852809569bdf4584c772a5734e0f0, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5252633828012718013, guid: cb8852809569bdf4584c772a5734e0f0, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.45446795
@@ -154,7 +170,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 759ab58de77f0564c91d34a27fe2d071, type: 3}
     - target: {fileID: 8118322326024112557, guid: cb8852809569bdf4584c772a5734e0f0, type: 3}
       propertyPath: MaxDistance
-      value: 24.5
+      value: 22.43
       objectReference: {fileID: 0}
     - target: {fileID: 8118322326024112557, guid: cb8852809569bdf4584c772a5734e0f0, type: 3}
       propertyPath: rolloffMode

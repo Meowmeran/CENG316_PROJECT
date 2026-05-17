@@ -552,8 +552,8 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.004014774
-      value: 1
+      time: 0.050330922
+      value: 1.0030975
       inSlope: -3.9992056
       outSlope: -3.9992056
       tangentMode: 0
@@ -561,8 +561,8 @@ AudioSource:
       inWeight: 0
       outWeight: 0.034016527
     - serializedVersion: 3
-      time: 0.06883682
-      value: 0.59548926
+      time: 0.1783091
+      value: 0.63267493
       inSlope: -2.1275966
       outSlope: -2.1275966
       tangentMode: 0
@@ -5563,7 +5563,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.513}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3359, y: 1.3359, z: 1.3359}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5252633828012718013}

@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class SoundInstancer : MonoBehaviour
@@ -51,4 +52,22 @@ public class SoundInstancer : MonoBehaviour
             yield return null;
         }
     }
+
+    public void PlaySound(float delayTime = 0f)
+    {
+        
+        GameObject gm = Instantiate(sound, transform.position, Quaternion.identity);
+        AudioSource audioSource = gm.GetComponent<AudioSource>();
+        audioSource.clip = clips[Random.Range(0, clips.Length)];
+
+        float randomVolume = Random.Range(minVolume, maxVolume);
+        audioSource.volume = randomVolume;
+
+        audioSource.pitch = Random.Range(minPitch, maxPitch);
+        audioSource.PlayDelayed(delayTime);
+
+        StartCoroutine(fadeOutSound(audioSource, randomVolume));
+        Destroy(gm, destroyTime);
+    }
+
 }
