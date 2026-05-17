@@ -2,15 +2,9 @@ using UnityEngine;
 
 public class JumpscareHandlerTouch : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public GameObject jumpscare;
+    public void Jumpscare()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        jumpscare.SetActive(true);
     }
 }

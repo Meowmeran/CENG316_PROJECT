@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Scene 1 - Touch.unity
+    guid: bb56973c31570b849849b0606ae254ab
+  - enabled: 1
+    path: Assets/Scenes/Scene 2 - Stop.unity
+    guid: fc90d8d1f37fa2040a92e9022ff8c274
+  - enabled: 1
     path: Assets/Scenes/Scene 3 - Climbing.unity
     guid: bdf280e5553216c49a144b09c61cadbb
   - enabled: 1

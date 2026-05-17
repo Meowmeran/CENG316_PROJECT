@@ -19,6 +19,20 @@ public class LightFlicker : MonoBehaviour
             Debug.LogError("No light component found on " + gameObject.name);
         }
     }
+    void OnEnable()
+    {
+        if (targeLight != null)
+        {
+            StartCoroutine(Flicker());
+        }
+    }
+    void OnDisable()
+    {
+        if (targeLight != null)
+        {
+            StopAllCoroutines();
+        }
+    }
     IEnumerator Flicker()
     {
         while (true)

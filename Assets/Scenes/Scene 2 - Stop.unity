@@ -1706,13 +1706,17 @@ PrefabInstance:
       propertyPath: m_VolumeLayerMask.m_Bits
       value: 1537
       objectReference: {fileID: 0}
+    - target: {fileID: 5948873088921650466, guid: b56a014dd0352e04eba5508a3e7d537b, type: 3}
+      propertyPath: m_CameraYOffset
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6125505206823290016, guid: b56a014dd0352e04eba5508a3e7d537b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.984
       objectReference: {fileID: 0}
     - target: {fileID: 6125505206823290016, guid: b56a014dd0352e04eba5508a3e7d537b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.057
+      value: -0.694
       objectReference: {fileID: 0}
     - target: {fileID: 6125505206823290016, guid: b56a014dd0352e04eba5508a3e7d537b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2166,7 +2170,7 @@ Transform:
   m_GameObject: {fileID: 1609342620}
   serializedVersion: 2
   m_LocalRotation: {x: -0.70710677, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -1.774, z: 0.0000000093132}
+  m_LocalPosition: {x: 0, y: -0.95, z: 0.0000000093132}
   m_LocalScale: {x: 375.60318, y: 375.60318, z: 158.61125}
   m_ConstrainProportionsScale: 0
   m_Children: []

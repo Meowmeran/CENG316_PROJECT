@@ -25,13 +25,13 @@ public class ThunderHandler : MonoBehaviour
     {
         while (true)
         {
+            yield return new WaitForSeconds(Random.Range(lightningMinDelay, lightningMaxDelay));
             Light randomLight = getRandomLight();
             randomLight.enabled = true;
             yield return new WaitForSeconds(Random.Range(lightningMinDuration, lightningMaxDuration));
             randomLight.enabled = false;
             float soundDelay = Random.Range(lightningSoundMinDelay, lightningSoundMaxDelay);
             soundInstancer.PlaySound(soundDelay);
-            yield return new WaitForSeconds(Random.Range(lightningMinDelay, lightningMaxDelay));
         }
     }
 
