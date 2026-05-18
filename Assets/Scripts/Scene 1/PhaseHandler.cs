@@ -107,6 +107,16 @@ public class PhaseHandler : MonoBehaviour
         yield return new WaitForFixedUpdate();
         handleRB.isKinematic = false;
     }
+    public void freezePhysics()
+    {
+        
+        if (handleGrab.isSelected)
+        {
+            var interactor = handleGrab.firstInteractorSelecting;
+            handleGrab.interactionManager.SelectExit(interactor, handleGrab);
+        }
+        handleRB.isKinematic = true;
+    }
 }
 
 public enum Phase

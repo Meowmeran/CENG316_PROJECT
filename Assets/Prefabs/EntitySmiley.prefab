@@ -4863,7 +4863,15 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 7c040b207b7acc44dbae6caa2b75151b, type: 3}
     - target: {fileID: 1480938048215015877, guid: cb8852809569bdf4584c772a5734e0f0, type: 3}
       propertyPath: MaxDistance
-      value: 27.1
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 1480938048215015877, guid: cb8852809569bdf4584c772a5734e0f0, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].time
+      value: 0.20564522
+      objectReference: {fileID: 0}
+    - target: {fileID: 1480938048215015877, guid: cb8852809569bdf4584c772a5734e0f0, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].value
+      value: 0.5823667
       objectReference: {fileID: 0}
     - target: {fileID: 1715623650095428287, guid: cb8852809569bdf4584c772a5734e0f0, type: 3}
       propertyPath: m_Color.b

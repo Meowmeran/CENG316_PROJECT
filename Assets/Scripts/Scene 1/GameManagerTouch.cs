@@ -10,6 +10,7 @@ public class GameManagerTouch : MonoBehaviour
     [SerializeField] private TouchDetectionManager touchDetectionManager;
     [SerializeField] private JumpscareHandlerTouch jumpscareHandler;
     [SerializeField] private EffectHandlerTouch effectHandler;
+    [SerializeField] private LightFlash bombFlash;
     [SerializeField] private float jumpscareDelay = 2f;
     public bool isWin = false;
     public bool isGameOver = false;
@@ -43,6 +44,8 @@ public class GameManagerTouch : MonoBehaviour
     public void OnGameOver()
     {
         isGameOver = true;
+        phaseHandler.freezePhysics();
+        bombFlash.SpeedMultiplier(0.05f);
         StartCoroutine(GameOverSequence());
     }
 
