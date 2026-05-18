@@ -1352,6 +1352,13 @@ MonoBehaviour:
   jumpscareHandler: {fileID: 1201994605}
   effectHandler: {fileID: 1706530733}
   bombFlash: {fileID: 1455897542}
+  thingsToDisableAfterDeath:
+  - {fileID: 1087606506}
+  - {fileID: 1696396904}
+  - {fileID: 734347793}
+  - {fileID: 1442771452}
+  - {fileID: 820494958}
+  - {fileID: 1792820463249378647}
   jumpscareDelay: 2.06
   isWin: 0
   isGameOver: 0

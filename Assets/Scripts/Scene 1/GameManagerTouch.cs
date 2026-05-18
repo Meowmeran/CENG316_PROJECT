@@ -11,6 +11,7 @@ public class GameManagerTouch : MonoBehaviour
     [SerializeField] private JumpscareHandlerTouch jumpscareHandler;
     [SerializeField] private EffectHandlerTouch effectHandler;
     [SerializeField] private LightFlash bombFlash;
+    [SerializeField] private GameObject[] thingsToDisableAfterDeath;
     [SerializeField] private float jumpscareDelay = 2f;
     public bool isWin = false;
     public bool isGameOver = false;
@@ -56,6 +57,15 @@ public class GameManagerTouch : MonoBehaviour
         yield return new WaitForSeconds(jumpscareDelay);
         effectHandler.OnGameOver();
         jumpscareHandler.Jumpscare();
+        DisableThingsOnDeath();
         sceneSwitcher.ReloadCurrentScene(4f);
     }
+
+    private void DisableThingsOnDeath()
+    {
+        foreach (GameObject thing in thingsToDisableAfterDeath)
+        {
+            thing.SetActive(false);
+        }
+    } 
 }
