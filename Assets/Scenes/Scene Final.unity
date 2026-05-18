@@ -3913,14 +3913,14 @@ MonoBehaviour:
   - {fileID: 4027596583251202512, guid: cb8852809569bdf4584c772a5734e0f0, type: 3}
   - {fileID: 4027596583251202512, guid: e5cc9fc6d5fa1c5479689fba3d68f115, type: 3}
   spawnRates:
-  - 2.7
+  - 3
   - 10
   - 14.5
   - 21
   spawnAreaCollider: {fileID: 187679450}
   spawnCheckRadius: 1
-  minDistanceToPlayer: 8.27
-  maxEnemiesAlive: 22
+  minDistanceToPlayer: 12
+  maxEnemiesAlive: 17
   enemyTag: Enemy
   spawnEntitites: 0
 --- !u!1 &878401693

@@ -134,7 +134,7 @@ public class EnemyController : MonoBehaviour
             jumpscareHandler.TriggerJumpscare((int)entityType);
             if (dieAfterDamage)
             {
-                TakeDamage(maxHealth); // Instantly die after attacking
+                Disappear();
             }
             Debug.Log("Enemy attacked player for " + attackDamage + " damage.");
         }
@@ -159,5 +159,13 @@ public class EnemyController : MonoBehaviour
             enemyHealth.TakeDamage(maxHealth);
         }
         Destroy(gameObject);
+    }
+
+    public void Disappear()
+    {
+        if (TryGetComponent<EnemyHealth>(out var enemyHealth))
+        {
+            enemyHealth.OnDisappear();
+        }
     }
 }

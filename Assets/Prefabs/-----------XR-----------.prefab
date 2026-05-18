@@ -48,6 +48,73 @@ MonoBehaviour:
   currentHealth: 0
   visualEffectHandler: {fileID: 0}
   gameManager: {fileID: 0}
+--- !u!1 &2218262471037203505
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7640750851411034166}
+  - component: {fileID: 7152061294035167423}
+  m_Layer: 0
+  m_Name: MenuHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7640750851411034166
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2218262471037203505}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.371792, y: 2.8151352, z: -3.6498756}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6351201061656330688}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7152061294035167423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2218262471037203505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6805542bada288e40aa51530f5acbae2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuPrefab: {fileID: 8174885208359164367, guid: 03701a8e9b596964ba4fe006963c1c9b, type: 3}
+  playerHead: {fileID: 4815839051193933308}
+  menuButton:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Menu Button
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: e26fc17c-df86-41eb-8332-8dbd989724f5
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: d6bd79be-0fae-4547-abd5-64396900d8d3
+        m_Path: <XRController>{LeftHand}/{SecondaryButton}
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Menu Button
+        m_Flags: 0
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  spawnDistance: 0.58
 --- !u!1 &5228500401095025053
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,6 +214,7 @@ Transform:
   m_Children:
   - {fileID: 2834282331035821032}
   - {fileID: 6125505206823290016}
+  - {fileID: 7640750851411034166}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8971629086691352874

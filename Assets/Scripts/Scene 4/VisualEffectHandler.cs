@@ -142,7 +142,10 @@ public class VisualEffectHandler : MonoBehaviour
         {
             AudioClip clip = damageSounds[UnityEngine.Random.Range(0, damageSounds.Length)];
             damageAudioSource.pitch = UnityEngine.Random.Range(0.8f, 1.2f); // Add some pitch variation for more variety
-            damageAudioSource.PlayOneShot(clip);
+            for (int i = 0; i < 3; i++)
+            {
+                damageAudioSource.PlayOneShot(clip);
+            }
         }
     }
 }

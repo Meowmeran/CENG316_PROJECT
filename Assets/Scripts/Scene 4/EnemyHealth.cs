@@ -33,7 +33,12 @@ public class EnemyHealth : Health
         {
             Instantiate(deathEffect, transform.position, Quaternion.identity);
         }
+        soundInstancer.PlaySound();
         gameManager.OnKill();
+        Destroy(gameObject);
+    }
+    public void OnDisappear()
+    {
         Destroy(gameObject);
     }
 }
