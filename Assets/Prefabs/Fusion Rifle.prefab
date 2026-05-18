@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 7717973570672098825}
   m_Layer: 0
   m_Name: Model
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 7500365844908731822}
   m_Layer: 0
   m_Name: Epsilon11SR
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
