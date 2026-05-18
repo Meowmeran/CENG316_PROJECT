@@ -30,7 +30,7 @@ public class EffectHandlerTouch : MonoBehaviour
     {
         wakeUpVolume.weight = 0;
         yield return new WaitForSeconds(delay);
-        StartCoroutine(SlowlyFadeIn(deathVolume, 0.8f, 0f));
+        StartCoroutine(SlowlyFadeIn(deathVolume, 1.2f, 0f));
         deathVolume.weight = 1;
     }
 
