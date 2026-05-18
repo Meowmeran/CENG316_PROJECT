@@ -799,12 +799,12 @@ MonoBehaviour:
   TheEyeVisual: {fileID: 668503034}
   playerMovementDetection: {fileID: 1366831090}
   gameManager: {fileID: 1078913034}
-  speed: 30
+  speed: 68.3
   allowence: 0.2
-  minReboundTimer: 2.77
-  maxReboundTimer: 6.54
-  minWatchTimer: 4.43
-  maxWatchTimer: 7.8
+  minReboundTimer: 2
+  maxReboundTimer: 20.2
+  minWatchTimer: 3.5
+  maxWatchTimer: 8
   CameraOffset: {fileID: 1085409744}
   minDistanceToShake: 125
   shakeMultiplier: 100
@@ -1678,6 +1678,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1489113547750983188, guid: b56a014dd0352e04eba5508a3e7d537b, type: 3}
+      propertyPath: m_Radius
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 1718793770012065249, guid: b56a014dd0352e04eba5508a3e7d537b, type: 3}
       propertyPath: m_UseLocalSpaceGravity
       value: 0
@@ -2143,7 +2147,7 @@ MonoBehaviour:
   playerHead: {fileID: 1361685779}
   playerRightHand: {fileID: 2110083304}
   playerLeftHand: {fileID: 1687826765}
-  movementThreshold: 0.1
+  movementThreshold: 0.096
 --- !u!1 &1609342620
 GameObject:
   m_ObjectHideFlags: 0

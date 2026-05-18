@@ -36,7 +36,7 @@ public class FusionRifleHandler : MonoBehaviour
             Debug.LogWarning("ProjectilePrefab not assigned for " + gameObject.name + ".");
         }
         weaponDamage = Mathf.Max(1, weaponDamage);
-        fireRate = Mathf.Max(0.1f, fireRate);
+        fireRate = Mathf.Max(0.01f, fireRate);
         projectileSpeed = Mathf.Max(0.1f, projectileSpeed);
         
     }

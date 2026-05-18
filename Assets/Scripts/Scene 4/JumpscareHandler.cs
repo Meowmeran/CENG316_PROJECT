@@ -89,5 +89,6 @@ public enum Entity
 {
     Ambush,
     Gast,
-    Smiley
+    Smiley,
+    Haste
 }

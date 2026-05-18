@@ -65,7 +65,12 @@ public class TheEyeLogic : MonoBehaviour
     {
         while (true)
         {
-            // ---- WATCH PHASE ----
+
+            float reboundTimer =
+                Random.Range(minReboundTimer, maxReboundTimer);
+
+            yield return new WaitForSeconds(reboundTimer);
+            
             yield return MoveEye(watchPoint.position);
 
             float watchTimer =
@@ -73,13 +78,7 @@ public class TheEyeLogic : MonoBehaviour
 
             yield return ObservePlayer(watchTimer);
 
-            // ---- REBOUND PHASE ----
             yield return MoveEye(reboundPoint.position);
-
-            float reboundTimer =
-                Random.Range(minReboundTimer, maxReboundTimer);
-
-            yield return new WaitForSeconds(reboundTimer);
         }
     }
 
