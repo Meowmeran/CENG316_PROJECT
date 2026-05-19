@@ -1,7 +1,5 @@
 using System.Collections;
-using UnityEditor.SearchService;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class GameManagerSpider : MonoBehaviour
 {

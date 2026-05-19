@@ -1426,6 +1426,7 @@ Transform:
   - {fileID: 1171143824}
   - {fileID: 1886280755}
   - {fileID: 1726713653}
+  - {fileID: 2030320512}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &879152725
@@ -1982,7 +1983,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0.07848248
-      value: 1
+      value: 1.1
       inSlope: -3.8309374
       outSlope: -3.8309374
       tangentMode: 0
@@ -2266,8 +2267,8 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.07848248
-      value: 1
+      time: 0.16524014
+      value: 1.0932728
       inSlope: -3.8309374
       outSlope: -3.8309374
       tangentMode: 0
@@ -2275,8 +2276,8 @@ AudioSource:
       inWeight: 0
       outWeight: 0.04276887
     - serializedVersion: 3
-      time: 0.12215419
-      value: 0.54710954
+      time: 0.20662685
+      value: 0.5437526
       inSlope: -2.4829094
       outSlope: -2.4829094
       tangentMode: 0
@@ -2789,6 +2790,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2030320511
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2030320512}
+  - component: {fileID: 2030320513}
+  m_Layer: 0
+  m_Name: ANDROID LINEAR ADJUSTMENT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2030320512
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030320511}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.2190017, y: -2.9922729, z: -1.1692482}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 876347477}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2030320513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030320511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 2.13
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 14869df4cb3b74448a1671b4bfbe120a, type: 2}
 --- !u!4 &2110083304 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4815839051347492223, guid: b56a014dd0352e04eba5508a3e7d537b, type: 3}
