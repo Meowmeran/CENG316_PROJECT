@@ -838,7 +838,7 @@ MonoBehaviour:
   patrolRadius: 9
   patrolChangeInterval: 7.6
   maxHealth: 3
-  attackDamage: 35
+  attackDamage: 40
   attackCooldown: 1.2
   dieAfterDamage: 1
   cameraShakeIntensity: 1
