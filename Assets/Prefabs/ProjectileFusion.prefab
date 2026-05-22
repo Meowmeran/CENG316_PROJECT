@@ -131,7 +131,7 @@ MonoBehaviour:
   rb: {fileID: 2619756988309040655}
   speed: 10
   damage: 7
-  lifetime: 3.19
+  lifetime: 2.2
 --- !u!1 &2114042055699012511
 GameObject:
   m_ObjectHideFlags: 0

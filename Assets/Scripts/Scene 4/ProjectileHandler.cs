@@ -7,6 +7,7 @@ public class ProjectileHandler : MonoBehaviour
     [SerializeField] private float speed = 10f;
     [SerializeField] private int damage = 1;
     [SerializeField] private float lifetime = 5f;
+    [SerializeField] private bool pierce = false;
 
     private void Start()
     {
@@ -48,7 +49,10 @@ public class ProjectileHandler : MonoBehaviour
             }
 
         }
-        Destroy(gameObject);
+        if (!pierce)
+        {
+            Destroy(gameObject); // Destroy projectile if it pierces
+        }
     }
 
     internal void SetDamage(int weaponDamage)

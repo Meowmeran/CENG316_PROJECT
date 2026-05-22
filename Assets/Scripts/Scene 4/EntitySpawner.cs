@@ -13,6 +13,7 @@ public class EntitySpawner : MonoBehaviour
     public string enemyTag = "Enemy";
     private Transform player;
     [SerializeField] private bool spawnEntitites = false; 
+    
 
     void Start()
     {
@@ -88,6 +89,19 @@ public class EntitySpawner : MonoBehaviour
             if (enemy.TryGetComponent<EnemyController>(out var enemyController))
             {
                 enemyController.Die();
+            }
+        }
+        return true;
+    }
+    [ContextMenu("Disappear All Enemies")]
+    public bool DisappearAllEnemies()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        foreach (GameObject enemy in enemies)
+        {
+            if (enemy.TryGetComponent<EnemyController>(out var enemyController))
+            {
+                enemyController.Disappear();
             }
         }
         return true;

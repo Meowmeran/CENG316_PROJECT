@@ -5339,8 +5339,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaf4a94016c90e24384d38f57814bf82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponDamage: 47
-  fireRate: 0.18
+  weaponDamage: 38
+  fireRate: 0.155
   projectileSpeed: 115
   projectilePrefab: {fileID: 726469431629059232, guid: d0a62e737b59f8943a259677caf8cf88, type: 3}
   fireEffect: {fileID: 994657327895692467}

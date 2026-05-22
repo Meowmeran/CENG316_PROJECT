@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour
     public float attackCooldown = 1.2f;
 
     private Transform player;
+    private PlayerHealth playerHealth;
     private Vector3 patrolDestination;
     private float patrolTimer;
     private float attackTimer;
@@ -68,11 +69,13 @@ public class EnemyController : MonoBehaviour
     private Transform FindPlayer()
     {
         var playerObject = GameObject.FindWithTag("Player");
+        playerHealth = playerObject.GetComponent<PlayerHealth>();
         return playerObject != null ? playerObject.transform : null;
     }
 
     private void ChasePlayer(float distanceToPlayer)
     {
+        if (playerHealth.IsDead()) return;
         Vector3 direction = (player.position - transform.position).normalized;
         MoveInDirection(direction, player.position);
 

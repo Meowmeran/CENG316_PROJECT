@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class GameManagerFinal : MonoBehaviour
@@ -28,12 +29,16 @@ public class GameManagerFinal : MonoBehaviour
         gameStartedOnce = false;
     }
     [ContextMenu("Start Game")]
-    public void GameStart()
+    
+    public void StartGame() => StartCoroutine(GameStart(3.4f));
+    IEnumerator GameStart(float delay = 2f)
     {
 
-        if (gameStartedOnce) return;
+        if (gameStartedOnce)
+            yield break;
         gameStartedOnce = true;
         musicManager.GoIntense();
+        new WaitForSeconds(delay);
         entitySpawner.StartSpawning();
     }
 
@@ -54,6 +59,7 @@ public class GameManagerFinal : MonoBehaviour
         musicManager.FadeAllOut();
         effectHandler.OnDeath();
         entitySpawner.StopSpawning();
+        entitySpawner.DisappearAllEnemies();
         sceneSwitcher.ReloadCurrentScene(5f);
     }
 
