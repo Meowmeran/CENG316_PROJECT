@@ -240,6 +240,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 7441247800504794374, guid: de2bd015a2988be4d9bd67034dbcb51a, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 7648892631230219605, guid: de2bd015a2988be4d9bd67034dbcb51a, type: 3}
       propertyPath: soundInstancer
       value: 
@@ -5638,6 +5642,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 4027596583251202512, guid: cb8852809569bdf4584c772a5734e0f0, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4217104146088192387, guid: cb8852809569bdf4584c772a5734e0f0, type: 3}
       propertyPath: soundInstancer
       value: 
@@ -6600,6 +6608,10 @@ PrefabInstance:
     - target: {fileID: 1715092031310437301, guid: c475a07a06a9f024d9d4a0720bf21605, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715092031310437301, guid: c475a07a06a9f024d9d4a0720bf21605, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 1923027411444081638, guid: c475a07a06a9f024d9d4a0720bf21605, type: 3}
       propertyPath: soundInstancer
@@ -16566,9 +16578,9 @@ SceneRoots:
   - {fileID: 1484677998}
   - {fileID: 884636569}
   - {fileID: 1190923709}
-  - {fileID: 306514293}
   - {fileID: 1031703248}
   - {fileID: 1713818827}
   - {fileID: 1911392317}
   - {fileID: 511944060}
   - {fileID: 1439297251}
+  - {fileID: 306514293}

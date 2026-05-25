@@ -175,7 +175,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: a0fef9d8ea3fbbb46b7f69b85386bbf1, type: 3}
     - target: {fileID: 3279104472564934436, guid: 96edc55c71832bc48bfba0c7bc9516af, type: 3}
       propertyPath: weaponDamage
-      value: 80
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 3279104472564934436, guid: 96edc55c71832bc48bfba0c7bc9516af, type: 3}
       propertyPath: projectilePrefab
@@ -613,8 +613,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 7896824002550621334}
   speed: 0
-  damage: 600
-  lifetime: 999
+  damage: 800
+  lifetime: 9999
   pierce: 1
 --- !u!54 &7896824002550621334
 Rigidbody:
